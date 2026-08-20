@@ -7,7 +7,7 @@ export function BlogPreview() {
   const posts = blogPosts.slice(0, 3);
 
   return (
-    <section className="container-site py-16 md:py-20">
+    <section className="container-site py-20 md:py-28">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <SectionHeading
           align="left"
@@ -23,7 +23,7 @@ export function BlogPreview() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         {posts.map((post) => (
           <Link
             key={post.slug}

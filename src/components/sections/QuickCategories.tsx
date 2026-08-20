@@ -13,12 +13,12 @@ export function QuickCategories() {
   const cards = categories.filter((c) => c.key !== "all");
 
   return (
-    <section className="container-site py-16 md:py-20">
+    <section className="container-site py-20 md:py-28">
       <SectionHeading
         title="Shop by Application"
         subtitle="Quick access to the product range that fits your project — whether industrial, residential or commercial."
       />
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         {cards.map((cat, i) => (
           <Link
             key={cat.key}

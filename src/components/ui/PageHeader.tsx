@@ -11,8 +11,8 @@ export function PageHeader({
 }) {
   return (
     <div className="relative overflow-hidden border-b border-slate-200/70 bg-gradient-to-b from-white to-slate-50">
-      <div className="spotlight spotlight-blue" aria-hidden="true" />
-      <div className="container-site relative flex flex-col items-start gap-2 py-12">
+      <div className="spotlight spotlight-bg" aria-hidden="true" />
+      <div className="container-site relative flex flex-col items-start gap-2 py-16 md:py-20">
         <h1 className="font-display text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
           {title}
         </h1>

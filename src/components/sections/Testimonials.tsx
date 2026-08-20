@@ -4,7 +4,7 @@ import { testimonials } from "@/lib/company";
 
 export function Testimonials() {
   return (
-    <section className="container-site py-16 md:py-20">
+    <section className="container-site py-20 md:py-28">
       <SectionHeading
         title="What Our Clients Say"
         subtitle="Trusted by contractors, developers and industry across Nigeria."

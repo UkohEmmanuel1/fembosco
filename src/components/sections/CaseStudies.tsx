@@ -4,7 +4,7 @@ import { caseStudies } from "@/lib/company";
 
 export function CaseStudies() {
   return (
-    <section className="border-y border-slate-200/60 bg-slate-50/70 py-16 md:py-20">
+    <section className="border-y border-slate-200/60 bg-slate-50/70 py-20 md:py-28">
       <div className="container-site">
         <SectionHeading
           title="Featured Projects"

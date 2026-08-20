@@ -75,7 +75,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Share on WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
               >
                 <ShareIcon className="h-4 w-4" />
               </a>
@@ -84,7 +84,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Share on Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
               >
                 <ShareIcon className="h-4 w-4" />
               </a>

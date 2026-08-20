@@ -17,9 +17,9 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<NonNullable<CommonProps["variant"]>, string> = {
   primary: "btn-pill",
-  secondary: "btn-pill-blue",
+  secondary: "btn-pill-solid",
   outline: "btn-outline",
-  white: "btn-white-blue",
+  white: "btn-ghost-white",
 };
 
 function Arrow({ className = "" }: { className?: string }) {

@@ -13,7 +13,7 @@ export function Newsletter() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-brand-primary via-brand-primary-light to-brand-secondary">
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-accent/30 blur-[80px]" aria-hidden="true" />
-      <div className="container-site relative flex flex-col items-center gap-8 py-14 md:flex-row md:justify-between">
+      <div className="container-site relative flex flex-col items-center gap-8 py-16 md:flex-row md:justify-between md:py-24">
         <div className="flex items-center gap-4 text-white">
           <span className="hidden h-14 w-14 items-center justify-center rounded-full border border-white/25 bg-white/15 backdrop-blur sm:flex">
             <EnvelopeIcon className="h-7 w-7" />
@@ -44,7 +44,7 @@ export function Newsletter() {
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue"
+              className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
             >
               Subscribe
             </button>

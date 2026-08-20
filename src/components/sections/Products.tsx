@@ -6,7 +6,7 @@ import { products } from "@/lib/products";
 
 export function Products() {
   return (
-    <section className="container-site py-16 md:py-20">
+    <section className="container-site py-20 md:py-28">
       <SectionHeading
         title="Our Products"
         subtitle="A complete range of electrical, industrial and engineering systems in stock."

@@ -75,7 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => addToCart(product.id)}
-            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue"
+            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
           >
             <PlusIcon className="h-4 w-4" />
             Add to Cart

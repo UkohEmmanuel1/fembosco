@@ -108,7 +108,7 @@ export default function AboutPage() {
       <section className="container-site py-16">
         <div className="relative flex flex-col items-center gap-8 overflow-hidden rounded-2xl border border-brand-secondary/20 bg-brand-secondary-light/60 p-10 text-center">
           <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-brand-accent/15 blur-[80px]" aria-hidden="true" />
-          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-glowBlue">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary text-white shadow-glow">
             <AwardIcon className="h-8 w-8" />
           </span>
           <div className="relative max-w-2xl">
@@ -139,7 +139,7 @@ export default function AboutPage() {
                 key={member.name}
                 className="group flex flex-col items-center gap-5 rounded-2xl border border-slate-200/70 bg-white p-8 text-center shadow-card transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-cardHover sm:flex-row sm:text-left"
               >
-                <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary font-display text-3xl font-semibold text-white shadow-glowBlue">
+                <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary font-display text-3xl font-semibold text-white shadow-glow">
                   {member.initials}
                 </span>
                 <div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
               key={c.title}
               className="group flex flex-col items-center rounded-2xl border border-slate-200/70 bg-white p-8 text-center shadow-card transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-cardHover"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-brand-secondary/15 bg-brand-secondary-light text-brand-primary shadow-sm transition-all duration-200 ease-smooth group-hover:shadow-glowBlue">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-brand-secondary/15 bg-brand-secondary-light text-brand-primary shadow-sm transition-all duration-200 ease-smooth group-hover:shadow-glow">
                 <c.icon className="h-7 w-7" />
               </span>
               <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-slate-900">{c.title}</h3>

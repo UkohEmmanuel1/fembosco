@@ -73,7 +73,7 @@ export function Hero() {
 
         {/* Abstract + product composition */}
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-brand-primary via-brand-primary-light to-brand-secondary shadow-glowBlue">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-brand-primary via-brand-primary-light to-brand-secondary shadow-glow">
             <div className="absolute inset-0 opacity-40" aria-hidden="true" />
             {/* abstract rings */}
             <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full border border-white/20" />

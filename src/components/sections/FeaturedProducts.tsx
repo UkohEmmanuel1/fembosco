@@ -15,7 +15,7 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section className="border-y border-slate-200/60 bg-slate-50/70 py-16 md:py-20">
+    <section className="border-y border-slate-200/60 bg-slate-50/70 py-20 md:py-28">
       <div className="container-site">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
@@ -28,7 +28,7 @@ export function FeaturedProducts() {
               type="button"
               onClick={() => scroll(-1)}
               aria-label="Previous products"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glowBlue"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glow"
             >
               <ChevronDownIcon className="h-5 w-5 rotate-90" />
             </button>
@@ -36,7 +36,7 @@ export function FeaturedProducts() {
               type="button"
               onClick={() => scroll(1)}
               aria-label="Next products"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glowBlue"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glow"
             >
               <ChevronDownIcon className="h-5 w-5 -rotate-90" />
             </button>
@@ -45,7 +45,7 @@ export function FeaturedProducts() {
 
         <div
           ref={trackRef}
-          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:thin]"
+          className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:thin]"
         >
           {featured.map((product) => (
             <div key={product.id} className="w-[280px] shrink-0 snap-start sm:w-[300px]">

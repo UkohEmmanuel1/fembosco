@@ -47,7 +47,7 @@ export function ProductDetail({ product }: { product: Product }) {
               aria-label={`View image ${i + 1}`}
               className={`overflow-hidden rounded-xl border-2 transition-all duration-200 ease-smooth ${
                 activeImage === i
-                  ? "border-brand-primary shadow-glowBlue"
+                  ? "border-brand-primary shadow-glow"
                   : "border-slate-200/70 opacity-70 hover:opacity-100"
               }`}
             >
@@ -111,7 +111,7 @@ export function ProductDetail({ product }: { product: Product }) {
           >
             Add to Cart
           </button>
-          <button type="button" onClick={openQuote} className="btn-pill-blue">
+          <button type="button" onClick={openQuote} className="btn-pill-solid">
             Request Bulk Quote
           </button>
         </div>

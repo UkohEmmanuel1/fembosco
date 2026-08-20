@@ -6,7 +6,7 @@ export function CtaStrip() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-secondary via-brand-primary to-brand-primary-dark">
       <div className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-brand-accent/25 blur-[90px]" aria-hidden="true" />
-      <div className="container-site relative flex flex-col items-center justify-between gap-8 px-4 py-[45px] text-center sm:px-6 md:flex-row md:text-left">
+      <div className="container-site relative flex flex-col items-center justify-between gap-8 px-4 py-16 text-center sm:px-6 md:flex-row md:py-24 md:text-left">
         <div>
           <h2 className="font-display text-3xl font-semibold tracking-tight text-white">
             Get in touch with us
@@ -16,7 +16,7 @@ export function CtaStrip() {
             Our customer service team is always available to answer all your questions — {site.phonePrimary}
           </p>
         </div>
-        <Link href="/contact" className="btn-white-blue shrink-0">
+        <Link href="/contact" className="btn-ghost-white shrink-0">
           Contact Sales
         </Link>
       </div>

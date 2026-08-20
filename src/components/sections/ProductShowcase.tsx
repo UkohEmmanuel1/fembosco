@@ -5,7 +5,7 @@ import { fancyStrings } from "@/lib/showcase";
 
 export function ProductShowcase() {
   return (
-    <section className="container-site grid grid-cols-1 items-center gap-10 py-14 md:grid-cols-2 md:gap-8">
+    <section className="container-site grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:gap-8 md:py-24">
       <div className="glass rounded-2xl border border-slate-200/70 bg-white/60 p-3 shadow-card backdrop-blur">
         <ProductFadeShow />
       </div>

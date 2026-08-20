@@ -3,16 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --color-brand-primary: #ff0000;
-  --color-brand-primary-dark: #b30000;
-  --color-brand-primary-light: #ff3b3b;
-  --color-brand-secondary: #e53935;
-  --color-brand-secondary-light: #fef2f2;
-  --color-brand-accent: #ed8936;
-  --color-brand-accent-dark: #dd6b20;
-  --color-brand-ink: #0f172a;
-  --color-brand-muted: #475569;
-  --color-border: #e2e8f0;
+  /* Brand red scale */
+  --color-brand-50: 255 245 245;
+  --color-brand-100: 255 227 227;
+  --color-brand-200: 255 201 201;
+  --color-brand-300: 255 154 154;
+  --color-brand-400: 255 107 107;
+  --color-brand-500: 255 59 59;
+  --color-brand-600: 255 0 0;
+  --color-brand-700: 224 0 0;
+  --color-brand-800: 179 0 0;
+  --color-brand-900: 138 0 0;
+
+  /* Semantic brand tokens */
+  --color-brand-primary: 255 0 0;
+  --color-brand-primary-dark: 179 0 0;
+  --color-brand-primary-light: 255 59 59;
+  --color-brand-secondary: 229 57 53;
+  --color-brand-secondary-light: 254 242 242;
+  --color-brand-accent: 237 137 54;
+  --color-brand-accent-light: 245 158 11;
+  --color-brand-accent-dark: 221 107 32;
+  --color-brand-ink: 15 23 42;
+  --color-brand-muted: 71 85 105;
+  --color-brand-navy: 8 23 38;
+
+  /* Neutrals */
+  --color-border: 226 232 240;
+  --color-canvas: 248 250 252;
+
   --container-width: 1170px;
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -23,8 +42,8 @@
   }
 
   body {
-    color: #0f172a;
-    background-color: #f8fafc;
+    color: rgb(var(--color-brand-ink));
+    background-color: rgb(var(--color-canvas));
     font-family: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -39,7 +58,7 @@
   h5,
   h6 {
     font-family: var(--font-display), "Space Grotesk", Inter, system-ui, sans-serif;
-    color: #0f172a;
+    color: rgb(var(--color-brand-ink));
     line-height: 1.15;
     letter-spacing: -0.02em;
     font-weight: 600;
@@ -69,12 +88,12 @@
 
   :focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-brand-secondary);
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgb(var(--color-brand-secondary));
   }
 
   ::selection {
     background: rgba(255, 0, 0, 0.16);
-    color: var(--color-brand-primary-dark);
+    color: rgb(var(--color-brand-primary-dark));
   }
 }
 
@@ -91,7 +110,7 @@
 
   /* Primary amber gradient pill with sheen sweep */
   .btn-pill {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#f59e0b] via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
   }
   .btn-pill::after {
     content: "";
@@ -102,32 +121,32 @@
     animation: shimmer 1.4s ease-out infinite;
   }
 
-  /* Deep-blue gradient pill */
-  .btn-pill-blue {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 active:translate-y-0;
+  /* Solid red gradient pill */
+  .btn-pill-solid {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 active:translate-y-0;
   }
-  .btn-pill-blue::after {
+  .btn-pill-solid::after {
     content: "";
     @apply pointer-events-none absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent;
     transform: skewX(-20deg);
   }
-  .btn-pill-blue:hover::after {
+  .btn-pill-solid:hover::after {
     animation: shimmer 1.4s ease-out infinite;
   }
 
   /* Ghost / outline button */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary backdrop-blur transition-all duration-200 ease-smooth hover:border-brand-secondary hover:bg-white hover:text-brand-primary hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary backdrop-blur transition-all duration-200 ease-smooth hover:border-brand-secondary hover:bg-white hover:text-brand-primary hover:shadow-glow focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
   }
 
   /* White button on gradient/CTA bands */
-  .btn-white-blue {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-200 ease-smooth hover:border-white hover:bg-white hover:text-brand-primary hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
+  .btn-ghost-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-200 ease-smooth hover:border-white hover:bg-white hover:text-brand-primary hover:shadow-glow focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
   }
 
   /* Pill button used on gradient hero */
   .btn-pill-hero {
-    @apply relative inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-full bg-gradient-to-b from-[#f59e0b] via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2;
+    @apply relative inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2;
   }
   .btn-pill-hero::after {
     content: "";
@@ -157,7 +176,7 @@
   }
 
   .text-gradient-amber {
-    @apply bg-gradient-to-r from-[#f59e0b] to-brand-accent-dark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-accent-light to-brand-accent-dark bg-clip-text text-transparent;
   }
 
   .ring-focus {
@@ -212,7 +231,7 @@
   .spotlight {
     @apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
   }
-  .spotlight-blue {
+  .spotlight-bg {
     background:
       radial-gradient(600px 400px at 15% 0%, rgba(229, 57, 53, 0.14), transparent 70%),
       radial-gradient(700px 500px at 90% 10%, rgba(179, 0, 0, 0.1), transparent 70%),

@@ -129,9 +129,7 @@ function MobileNavItem({ item, active, onNavigate }: { item: NavItem; active: bo
       <div className="flex items-center justify-between">
         <Link
           href={item.href}
-          onClick={() => {
-            if (!hasChildren) onNavigate();
-          }}
+          onClick={() => onNavigate()}
           className={`flex-1 py-3.5 text-sm font-medium ${active ? "text-brand-primary" : "text-slate-700"}`}
         >
           {item.label}
@@ -190,6 +188,18 @@ export function Header() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const onSubmitSearch = (e: FormEvent) => {
     e.preventDefault();
     router.push(`/shop?q=${encodeURIComponent(query)}`);
@@ -200,11 +210,12 @@ export function Header() {
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
-    <header
-      className={`sticky top-0 z-[999] border-b backdrop-blur-md transition-all duration-300 ease-smooth ${
-        scrolled ? "border-slate-200/70 bg-white/85 shadow-[0_4px_24px_-12px_rgba(15,23,42,0.12)]" : "border-transparent bg-white/60"
-      }`}
-    >
+    <>
+      <header
+        className={`sticky top-0 z-[999] border-b backdrop-blur-md transition-all duration-300 ease-smooth ${
+          scrolled ? "border-slate-200/70 bg-white/85 shadow-[0_4px_24px_-12px_rgba(15,23,42,0.12)]" : "border-transparent bg-white/60"
+        }`}
+      >
       {/* Top bar */}
       <div className={`hidden border-b border-slate-100/80 text-slate-500 sm:block ${searchOpen ? "hidden sm:hidden" : ""}`}>
         <div className="container-site flex items-center justify-between py-2">
@@ -338,15 +349,17 @@ export function Header() {
           </div>
         )}
       </div>
+      </header>
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-[9999] flex flex-col bg-white/90 backdrop-blur-xl lg:hidden ${
-          mobileOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        className={`fixed inset-0 z-[9999] flex flex-col bg-white/95 backdrop-blur-xl lg:hidden ${
+          mobileOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
         } transition-all duration-300 ease-smooth`}
         role="dialog"
         aria-modal="true"
         aria-label="Primary menu"
+        aria-hidden={!mobileOpen}
       >
         <div className="flex items-center justify-between border-b border-slate-100 p-4">
           <Link href="/" onClick={() => setMobileOpen(false)} className="font-display text-lg font-semibold text-slate-900">
@@ -387,6 +400,6 @@ export function Header() {
           <SocialBar className="mt-4 justify-center" />
         </div>
       </div>
-    </header>
+    </>
   );
 }

@@ -14,7 +14,7 @@ export function B2BTeaser() {
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-primary-dark to-slate-900">
       <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-brand-secondary/40 blur-[100px]" aria-hidden="true" />
       <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-brand-accent/25 blur-[100px]" aria-hidden="true" />
-      <div className="container-site relative grid grid-cols-1 items-center gap-12 py-16 md:grid-cols-2 md:py-20">
+      <div className="container-site relative grid grid-cols-1 items-center gap-12 py-20 md:grid-cols-2 md:py-28">
         <div className="text-white">
           <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-accent backdrop-blur">
             B2B / Wholesale

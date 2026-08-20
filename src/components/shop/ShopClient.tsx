@@ -37,7 +37,7 @@ function ListProductRow({ slug }: { slug: string }) {
           </p>
           <a
             href={`/shop/${product.slug}`}
-            className="rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue"
+            className="rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
           >
             View Product
           </a>

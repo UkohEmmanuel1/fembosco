@@ -3,7 +3,7 @@ import { partners, partnerNames } from "@/lib/partners";
 
 export function Partners() {
   return (
-    <section className="container-site pb-16 pt-10 md:pb-20">
+    <section className="container-site py-20 md:py-28">
       <div className="flex flex-col items-center text-center">
         <h2 className="section-title">Our Partners</h2>
         <div className="divider-brand" aria-hidden="true" />
@@ -21,7 +21,7 @@ export function Partners() {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-12 grid grid-cols-3 items-center gap-x-8 gap-y-10">
         {partners.map((partner) => (
           <div
             key={partner.name}
