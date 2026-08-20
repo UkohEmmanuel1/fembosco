@@ -34,17 +34,17 @@ export function Newsletter() {
             Subscribed! Welcome to the Fembosco community.
           </p>
         ) : (
-          <form onSubmit={onSubmit} className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
+          <form onSubmit={onSubmit} className="flex w-full max-w-md items-center gap-3">
             <input
               type="email"
               required
               placeholder="Your email address"
               aria-label="Email address for newsletter"
-              className="w-full rounded-full border border-white/30 bg-white/90 px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 ring-focus"
+              className="min-w-0 flex-1 rounded-full border border-white/30 bg-white/90 px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 ring-focus"
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
+              className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px]"
             >
               Subscribe
             </button>

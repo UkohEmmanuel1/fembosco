@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { StarRating } from "@/components/ui/StarRating";
-import { HeartIcon, CompareIcon, PlusIcon } from "@/components/ui/icons";
+import { HeartIcon, CompareIcon, CartIcon } from "@/components/ui/icons";
 import type { Product } from "@/lib/products";
 import { naira, stockLabels } from "@/lib/products";
 import { useStore } from "@/components/store/StoreProvider";
@@ -53,7 +53,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="flex flex-1 flex-col p-5">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-brand-secondary">{product.manufacturer}</p>
         <Link href={`/shop/${product.slug}`} className="mt-1 block">
-          <h3 className="font-display text-lg font-semibold tracking-tight text-slate-900 transition-colors hover:text-brand-primary">
+          <h3 className="line-clamp-2 font-display text-lg font-semibold tracking-tight text-slate-900 transition-colors hover:text-brand-primary">
             {product.title}
           </h3>
         </Link>
@@ -75,9 +75,9 @@ export function ProductCard({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => addToCart(product.id)}
-            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow"
+            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px]"
           >
-            <PlusIcon className="h-4 w-4" />
+            <CartIcon className="h-4 w-4" />
             Add to Cart
           </button>
           <Link

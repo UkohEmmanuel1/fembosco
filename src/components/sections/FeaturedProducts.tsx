@@ -28,7 +28,7 @@ export function FeaturedProducts() {
               type="button"
               onClick={() => scroll(-1)}
               aria-label="Previous products"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glow"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary"
             >
               <ChevronDownIcon className="h-5 w-5 rotate-90" />
             </button>
@@ -36,7 +36,7 @@ export function FeaturedProducts() {
               type="button"
               onClick={() => scroll(1)}
               aria-label="Next products"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary hover:shadow-glow"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-primary shadow-sm transition-all duration-200 ease-smooth hover:border-brand-secondary"
             >
               <ChevronDownIcon className="h-5 w-5 -rotate-90" />
             </button>

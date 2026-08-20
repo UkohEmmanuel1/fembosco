@@ -110,7 +110,7 @@
 
   /* Primary amber gradient pill with sheen sweep */
   .btn-pill {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
   }
   .btn-pill::after {
     content: "";
@@ -123,7 +123,7 @@
 
   /* Solid red gradient pill */
   .btn-pill-solid {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glow focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 active:translate-y-0;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 active:translate-y-0;
   }
   .btn-pill-solid::after {
     content: "";
@@ -136,17 +136,17 @@
 
   /* Ghost / outline button */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary backdrop-blur transition-all duration-200 ease-smooth hover:border-brand-secondary hover:bg-white hover:text-brand-primary hover:shadow-glow focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary backdrop-blur transition-all duration-200 ease-smooth hover:border-brand-secondary hover:bg-white hover:text-brand-primary focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
   }
 
   /* White button on gradient/CTA bands */
   .btn-ghost-white {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-200 ease-smooth hover:border-white hover:bg-white hover:text-brand-primary hover:shadow-glow focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-200 ease-smooth hover:border-white hover:bg-white hover:text-brand-primary focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
   }
 
   /* Pill button used on gradient hero */
   .btn-pill-hero {
-    @apply relative inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2;
+    @apply relative inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-full bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2;
   }
   .btn-pill-hero::after {
     content: "";
