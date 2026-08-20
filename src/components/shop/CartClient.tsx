@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useStore } from "@/components/store/StoreProvider";
 import { ProductCard } from "@/components/ui/ProductCard";
-import { naira, products } from "@/lib/products";
+import { products } from "@/lib/products";
 import { PlusIcon, MinusIcon, TrashIcon, TagIcon } from "@/components/ui/icons";
 import { CartQuoteModal } from "@/components/shop/CartQuoteModal";
 
@@ -16,7 +16,7 @@ function tierDiscount(qty: number, productId: string): number {
 }
 
 export function CartClient() {
-  const { cart, cartProducts, updateQty, removeFromCart, clearCart, cartSubtotal } = useStore();
+  const { cart, cartProducts, updateQty, removeFromCart, clearCart } = useStore();
   const [quoteOpen, setQuoteOpen] = useState(false);
 
   if (cart.length === 0) {
@@ -30,12 +30,6 @@ export function CartClient() {
       </div>
     );
   }
-
-  const savings = cart.reduce((sum, item) => {
-    const p = products.find((pp) => pp.id === item.productId);
-    if (!p) return sum;
-    return sum + Math.round(p.price * (tierDiscount(item.qty, item.productId) / 100) * item.qty);
-  }, 0);
 
   return (
     <div className="container-site py-12">
@@ -52,8 +46,6 @@ export function CartClient() {
             const product = cartProducts.find((p) => p.id === item.productId);
             if (!product) return null;
             const discount = tierDiscount(item.qty, product.id);
-            const unitPrice = Math.round(product.price * (1 - discount / 100));
-            const lineTotal = unitPrice * item.qty;
             return (
               <div
                 key={item.productId}
@@ -109,12 +101,7 @@ export function CartClient() {
                         <PlusIcon className="h-4 w-4" />
                       </button>
                     </div>
-                    <p className="font-display text-lg font-semibold text-brand-primary">
-                      {naira(lineTotal)}
-                      <span className="block text-xs font-normal text-slate-500">
-                        {naira(unitPrice)} / {product.unit} {discount > 0 && <span className="line-through">{naira(product.price)}</span>}
-                      </span>
-                    </p>
+                    <span className="text-sm text-slate-500">{product.unit}</span>
                   </div>
                 </div>
               </div>
@@ -127,22 +114,17 @@ export function CartClient() {
           <h2 className="font-display text-lg font-semibold tracking-tight text-slate-900">Order Summary</h2>
           <dl className="mt-5 space-y-3 text-sm">
             <div className="flex justify-between text-slate-500">
-              <dt>Subtotal</dt>
-              <dd className="font-semibold text-slate-900">{naira(cartSubtotal)}</dd>
-            </div>
-            <div className="flex justify-between text-slate-500">
-              <dt>Volume savings</dt>
-              <dd className="font-semibold text-emerald-600">-{naira(savings)}</dd>
+              <dt>Items</dt>
+              <dd className="font-semibold text-slate-900">{cart.length}</dd>
             </div>
             <div className="flex justify-between text-slate-500">
               <dt>Delivery</dt>
               <dd>Calculated at checkout</dd>
             </div>
-            <div className="flex justify-between border-t border-slate-200 pt-3 text-base">
-              <dt className="font-semibold text-slate-900">Total</dt>
-              <dd className="font-display font-semibold text-brand-primary">{naira(cartSubtotal - savings)}</dd>
-            </div>
           </dl>
+          <p className="mt-4 rounded-xl bg-brand-secondary-light/70 px-4 py-3 text-xs leading-relaxed text-slate-500">
+            Pricing is confirmed with our team after you request a quote.
+          </p>
           <button
             type="button"
             onClick={() => setQuoteOpen(true)}

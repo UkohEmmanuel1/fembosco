@@ -80,15 +80,19 @@ export function Hero() {
             <div className="absolute -left-14 -top-14 h-56 w-56 rounded-full border border-white/15" />
             <div className="absolute right-0 top-1/3 h-64 w-64 rounded-full bg-brand-accent/30 blur-[90px]" />
 
-            {/* product image */}
-            <div className="absolute inset-x-8 bottom-10 top-16 overflow-hidden rounded-2xl border border-white/20 bg-white shadow-cardHover">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={featured.image}
-                alt={featured.alt}
+            {/* product video */}
+            <div className="absolute inset-x-8 bottom-10 top-16 overflow-hidden rounded-2xl border border-white/20 bg-slate-900 shadow-cardHover">
+              <video
+                src="/videos/hero-video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/30 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="font-display text-lg font-semibold tracking-tight text-white">{featured.title}</p>
               </div>

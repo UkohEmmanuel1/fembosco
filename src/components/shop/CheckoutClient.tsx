@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useStore } from "@/components/store/StoreProvider";
-import { naira, products } from "@/lib/products";
+import { products } from "@/lib/products";
 import { CheckCircleIcon, TruckIcon } from "@/components/ui/icons";
 
 const input =
@@ -18,7 +18,7 @@ function tierDiscount(qty: number, productId: string): number {
 }
 
 export function CheckoutClient() {
-  const { cart, cartProducts, cartSubtotal, clearCart } = useStore();
+  const { cart, cartProducts, clearCart } = useStore();
   const [placed, setPlaced] = useState(false);
   const [orderNo, setOrderNo] = useState("");
   const [payment, setPayment] = useState("bank-transfer");
@@ -67,13 +67,6 @@ export function CheckoutClient() {
       </div>
     );
   }
-
-  const savings = cart.reduce((sum, item) => {
-    const p = products.find((pp) => pp.id === item.productId);
-    if (!p) return sum;
-    return sum + Math.round(p.price * (tierDiscount(item.qty, item.productId) / 100) * item.qty);
-  }, 0);
-  const total = cartSubtotal - savings;
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -185,7 +178,7 @@ export function CheckoutClient() {
           </section>
 
           <button type="submit" className="btn-pill w-full py-4 text-base">
-            Place Order — {naira(total)}
+            Place Order
           </button>
         </form>
 
@@ -195,7 +188,6 @@ export function CheckoutClient() {
             {cartProducts.map((p) => {
               const qty = cart.find((i) => i.productId === p.id)?.qty ?? 0;
               const discount = tierDiscount(qty, p.id);
-              const lineTotal = Math.round(p.price * (1 - discount / 100)) * qty;
               return (
                 <li key={p.id} className="flex items-center gap-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -207,27 +199,18 @@ export function CheckoutClient() {
                       {discount > 0 && ` • ${discount}% off`}
                     </p>
                   </div>
-                  <p className="font-semibold text-slate-900">{naira(lineTotal)}</p>
                 </li>
               );
             })}
           </ul>
           <dl className="mt-5 space-y-2 border-t border-slate-200 pt-4 text-sm">
             <div className="flex justify-between text-slate-500">
-              <dt>Subtotal</dt>
-              <dd className="font-semibold text-slate-900">{naira(cartSubtotal)}</dd>
-            </div>
-            <div className="flex justify-between text-slate-500">
-              <dt>Volume savings</dt>
-              <dd className="font-semibold text-emerald-600">-{naira(savings)}</dd>
+              <dt>Items</dt>
+              <dd className="font-semibold text-slate-900">{cart.length}</dd>
             </div>
             <div className="flex justify-between text-slate-500">
               <dt>Delivery</dt>
               <dd>To be confirmed</dd>
-            </div>
-            <div className="flex justify-between border-t border-slate-200 pt-3 text-base">
-              <dt className="font-semibold text-slate-900">Total</dt>
-              <dd className="font-display font-semibold text-brand-primary">{naira(total)}</dd>
             </div>
           </dl>
           <p className="mt-4 flex items-start gap-2 text-xs text-slate-500">
