@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-brand-primary: #1a365d;
-  --color-brand-primary-dark: #12233f;
-  --color-brand-primary-light: #2b4c7a;
-  --color-brand-secondary: #3182ce;
-  --color-brand-secondary-light: #eaf3fb;
+  --color-brand-primary: #ff0000;
+  --color-brand-primary-dark: #b30000;
+  --color-brand-primary-light: #ff3b3b;
+  --color-brand-secondary: #e53935;
+  --color-brand-secondary-light: #fef2f2;
   --color-brand-accent: #ed8936;
   --color-brand-accent-dark: #dd6b20;
   --color-brand-ink: #0f172a;
@@ -73,7 +73,7 @@
   }
 
   ::selection {
-    background: rgba(49, 130, 206, 0.18);
+    background: rgba(255, 0, 0, 0.16);
     color: var(--color-brand-primary-dark);
   }
 }
@@ -214,8 +214,8 @@
   }
   .spotlight-blue {
     background:
-      radial-gradient(600px 400px at 15% 0%, rgba(49, 130, 206, 0.14), transparent 70%),
-      radial-gradient(700px 500px at 90% 10%, rgba(26, 54, 93, 0.1), transparent 70%),
+      radial-gradient(600px 400px at 15% 0%, rgba(229, 57, 53, 0.14), transparent 70%),
+      radial-gradient(700px 500px at 90% 10%, rgba(179, 0, 0, 0.1), transparent 70%),
       radial-gradient(500px 400px at 50% 120%, rgba(237, 137, 54, 0.1), transparent 70%);
   }
 }

@@ -6,11 +6,11 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#1a365d",
-          "primary-dark": "#12233f",
-          "primary-light": "#2b4c7a",
-          secondary: "#3182ce",
-          "secondary-light": "#eaf3fb",
+          primary: "#ff0000",
+          "primary-dark": "#b30000",
+          "primary-light": "#ff3b3b",
+          secondary: "#e53935",
+          "secondary-light": "#fef2f2",
           accent: "#ed8936",
           "accent-dark": "#dd6b20",
           ink: "#0f172a",
@@ -34,9 +34,9 @@ const config: Config = {
       },
       boxShadow: {
         card: "0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -8px rgba(15,23,42,0.08)",
-        cardHover: "0 2px 4px rgba(15,23,42,0.05), 0 20px 40px -12px rgba(26,54,93,0.22)",
+        cardHover: "0 2px 4px rgba(15,23,42,0.05), 0 20px 40px -12px rgba(179,0,0,0.22)",
         glowBlue:
-          "0 0 0 1px rgba(49,130,206,0.12), 0 8px 40px -8px rgba(49,130,206,0.35), 0 24px 80px -24px rgba(26,54,93,0.35)",
+          "0 0 0 1px rgba(229,57,53,0.12), 0 8px 40px -8px rgba(229,57,53,0.35), 0 24px 80px -24px rgba(179,0,0,0.35)",
         glowAmber:
           "0 0 0 1px rgba(237,137,54,0.14), 0 8px 32px -8px rgba(237,137,54,0.35), 0 20px 60px -20px rgba(221,107,32,0.3)",
         button: "0 8px 24px -8px rgba(221,107,32,0.45)",
