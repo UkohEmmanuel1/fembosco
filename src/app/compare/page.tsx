@@ -9,7 +9,10 @@ export const metadata = {
 export default function ComparePage() {
   return (
     <>
-      <PageHeader title="Compare Products" crumb="Compare" />
+      <PageHeader
+        title="Compare Products"
+        trail={[{ label: "Shop", href: "/shop" }, { label: "Compare" }]}
+      />
       <CompareClient />
     </>
   );

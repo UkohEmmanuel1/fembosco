@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { StarRating } from "@/components/ui/StarRating";
 import {
-  HeartIcon,
   CompareIcon,
   PlusIcon,
   MinusIcon,
@@ -13,15 +12,12 @@ import {
   ShieldIcon,
 } from "@/components/ui/icons";
 import { useStore } from "@/components/store/StoreProvider";
-import { useQuote } from "@/components/layout/QuoteProvider";
-import { naira, stockLabels, type Product } from "@/lib/products";
+import { stockLabels, type Product } from "@/lib/products";
 
 export function ProductDetail({ product }: { product: Product }) {
   const [activeImage, setActiveImage] = useState(0);
   const [qty, setQty] = useState(product.moq);
-  const { addToCart, isWishlisted, toggleWishlist, isCompared, toggleCompare } = useStore();
-  const { openQuote } = useQuote();
-  const wished = isWishlisted(product.id);
+  const { addToCart, isCompared, toggleCompare } = useStore();
   const compared = isCompared(product.id);
   const stock = stockLabels[product.stock];
   const stockOut = product.stock === "out-of-stock";
@@ -70,7 +66,6 @@ export function ProductDetail({ product }: { product: Product }) {
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <p className="font-display text-3xl font-semibold tracking-tight text-brand-primary">{naira(product.price)}</p>
           <span className="text-sm text-slate-500">{product.unit}</span>
           <span className={`rounded-full px-3 py-1 text-xs font-semibold ${stock.color}`}>{stock.label}</span>
         </div>
@@ -111,24 +106,12 @@ export function ProductDetail({ product }: { product: Product }) {
           >
             Add to Cart
           </button>
-          <button type="button" onClick={openQuote} className="btn-pill-solid">
-            Request Bulk Quote
-          </button>
+          <Link href="/cart" className="btn-pill-solid">
+            View Cart
+          </Link>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => toggleWishlist(product.id)}
-            className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-200 ease-smooth ${
-              wished
-                ? "border-brand-accent bg-brand-accent/10 text-brand-accent"
-                : "border-slate-300 text-slate-500 hover:text-brand-accent"
-            }`}
-          >
-            <HeartIcon className={`h-4 w-4 ${wished ? "fill-brand-accent" : ""}`} />
-            {wished ? "Saved to Wishlist" : "Save to Wishlist"}
-          </button>
           <button
             type="button"
             onClick={() => toggleCompare(product.id)}

@@ -15,7 +15,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact Us"
-        crumb="Contact Us"
+        trail={[{ label: "Contact Us" }]}
         description="Our team is ready to help — sales, technical support, B2B and delivery enquiries."
       />
 

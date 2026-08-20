@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { StarRating } from "@/components/ui/StarRating";
-import { HeartIcon, CompareIcon, CartIcon } from "@/components/ui/icons";
+import { CompareIcon, CartIcon } from "@/components/ui/icons";
 import type { Product } from "@/lib/products";
-import { naira, stockLabels } from "@/lib/products";
+import { stockLabels } from "@/lib/products";
 import { useStore } from "@/components/store/StoreProvider";
 
 export function ProductCard({ product }: { product: Product }) {
-  const { addToCart, isWishlisted, toggleWishlist, isCompared, toggleCompare } = useStore();
-  const wished = isWishlisted(product.id);
+  const { addToCart, isCompared, toggleCompare } = useStore();
   const compared = isCompared(product.id);
   const stock = stockLabels[product.stock];
 
@@ -27,16 +26,6 @@ export function ProductCard({ product }: { product: Product }) {
           {stock.label}
         </span>
         <div className="absolute right-3 top-3 flex flex-col gap-2">
-          <button
-            type="button"
-            aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
-            onClick={() => toggleWishlist(product.id)}
-            className={`flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur transition-all duration-200 ease-smooth hover:-translate-y-0.5 ${
-              wished ? "text-brand-accent" : "text-slate-500 hover:text-brand-accent"
-            }`}
-          >
-            <HeartIcon className={`h-4 w-4 ${wished ? "fill-brand-accent" : ""}`} />
-          </button>
           <button
             type="button"
             aria-label={compared ? "Remove from comparison" : "Add to comparison"}
@@ -64,11 +53,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-slate-500">{product.shortDescription}</p>
 
         <div className="mt-4 flex items-center justify-between">
-          <p className="font-display text-lg font-semibold text-slate-900">
-            {naira(product.price)}
-            <span className="text-xs font-normal text-slate-400"> {product.unit}</span>
-          </p>
-          <p className="text-xs text-slate-400">MOQ: {product.moq}</p>
+          <p className="text-xs text-slate-400">MOQ: {product.moq} {product.unit}</p>
         </div>
 
         <div className="mt-4 flex gap-2">

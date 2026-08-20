@@ -2,10 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ProductDetail } from "@/components/shop/ProductDetail";
+import { ProductTabs } from "@/components/shop/ProductTabs";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { DownloadIcon, ChevronDownIcon } from "@/components/ui/icons";
-import { getProduct, getRelated, naira, stockLabels } from "@/lib/products";
+import { getProduct, getRelated, stockLabels } from "@/lib/products";
 
 export async function generateStaticParams() {
   const { products } = await import("@/lib/products");
@@ -30,36 +31,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <PageHeader title={product.title} crumb={product.title} description={product.shortDescription} />
+      <PageHeader
+        title={product.title}
+        trail={[{ label: "Shop", href: "/shop" }, { label: product.title }]}
+        description={product.shortDescription}
+      />
       <section className="container-site py-12">
         <ProductDetail product={product} />
 
-        {/* Specs + datasheet */}
+        {/* Description + Reviews tabs, specs and datasheet */}
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px]">
-          <div>
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-slate-900">Product Description</h2>
-            <div className="divider-brand !ml-0" aria-hidden="true" />
-            <p className="mt-5 text-[15px] leading-relaxed text-slate-500">{product.description}</p>
-
-            <h2 className="mt-10 font-display text-2xl font-semibold tracking-tight text-slate-900">Technical Specifications</h2>
-            <div className="divider-brand !ml-0" aria-hidden="true" />
-            <table className="spec-table mt-5">
-              <thead>
-                <tr>
-                  <th>Specification</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {product.specs.map((s) => (
-                  <tr key={s.label}>
-                    <td>{s.label}</td>
-                    <td>{s.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ProductTabs product={product} />
 
           <aside className="space-y-6">
             <div className="glass rounded-2xl border border-slate-200/70 bg-white p-6 shadow-card">
@@ -78,13 +60,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-slate-500">
-                Effective unit:{" "}
-                <span className="font-mono font-semibold text-brand-primary">
-                  {naira(Math.round(product.price * (1 - product.bulkTiers[product.bulkTiers.length - 1].discount / 100)))}
-                </span>{" "}
-                at max tier
-              </p>
             </div>
 
             <div className="glass rounded-2xl border border-slate-200/70 bg-white p-6 shadow-card">

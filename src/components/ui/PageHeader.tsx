@@ -1,12 +1,17 @@
 import Link from "next/link";
 
+type Crumb = {
+  label: string;
+  href?: string;
+};
+
 export function PageHeader({
   title,
-  crumb,
+  trail,
   description,
 }: {
   title: string;
-  crumb: string;
+  trail: Crumb[];
   description?: string;
 }) {
   return (
@@ -18,18 +23,31 @@ export function PageHeader({
         </h1>
         {description && <p className="max-w-2xl text-sm leading-relaxed text-slate-500">{description}</p>}
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm text-slate-500">
+          <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
             <li>
               <Link href="/" className="font-medium text-brand-primary transition-colors hover:text-brand-accent">
                 Home
               </Link>
             </li>
-            <li aria-hidden="true" className="text-slate-300">
-              /
-            </li>
-            <li aria-current="page" className="text-slate-500">
-              {crumb}
-            </li>
+            {trail.map((crumb, i) => {
+              const isLast = i === trail.length - 1;
+              return (
+                <li key={`${crumb.label}-${i}`} className="flex items-center gap-2">
+                  <span aria-hidden="true" className="text-slate-300">
+                    /
+                  </span>
+                  {crumb.href && !isLast ? (
+                    <Link href={crumb.href} className="font-medium text-brand-primary transition-colors hover:text-brand-accent">
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span aria-current="page" className="text-slate-500">
+                      {crumb.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ol>
         </nav>
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { QuoteButton } from "@/components/ui/QuoteButton";
 import { BoltIcon, ShieldIcon, AwardIcon, TruckIcon, StarIcon } from "@/components/ui/icons";
 import { site } from "@/lib/site";
-import { products, naira } from "@/lib/products";
+import { products } from "@/lib/products";
 
 const trustItems = [
   { icon: BoltIcon, title: "Est. 2003", text: "Two decades of trusted supply" },
@@ -91,7 +91,6 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/40 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="font-display text-lg font-semibold tracking-tight text-white">{featured.title}</p>
-                <p className="text-xs text-white/80">{naira(featured.price)} {featured.unit}</p>
               </div>
             </div>
 

@@ -9,7 +9,10 @@ export const metadata = {
 export default function CheckoutPage() {
   return (
     <>
-      <PageHeader title="Checkout" crumb="Checkout" />
+      <PageHeader
+        title="Checkout"
+        trail={[{ label: "Shop", href: "/shop" }, { label: "Cart", href: "/cart" }, { label: "Checkout" }]}
+      />
       <CheckoutClient />
     </>
   );

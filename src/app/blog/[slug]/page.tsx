@@ -27,7 +27,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <PageHeader title="Blog" crumb="Blog" />
+      <PageHeader title="Blog" trail={[{ label: "Blog", href: "/blog" }, { label: post.title }]} />
       <article className="container-site py-12">
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">

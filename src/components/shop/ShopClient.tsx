@@ -12,7 +12,7 @@ import {
   type Manufacturer,
 } from "@/lib/products";
 
-type SortKey = "featured" | "price-asc" | "price-desc" | "rating";
+type SortKey = "featured" | "rating";
 
 type ViewMode = "grid" | "list";
 
@@ -31,10 +31,7 @@ function ListProductRow({ slug }: { slug: string }) {
         <p className="text-[11px] font-semibold uppercase tracking-wider text-brand-secondary">{product.manufacturer}</p>
         <h3 className="mt-1 font-display text-lg font-semibold tracking-tight text-slate-900">{product.title}</h3>
         <p className="mt-1 text-sm text-slate-500">{product.shortDescription}</p>
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-3">
-          <p className="font-display text-lg font-semibold text-brand-primary">
-            ₦{product.price.toLocaleString("en-NG")}
-          </p>
+        <div className="mt-auto flex flex-wrap items-center justify-end gap-3 pt-3">
           <a
             href={`/shop/${product.slug}`}
             className="rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 ease-smooth hover:-translate-y-[1px]"
@@ -66,7 +63,6 @@ export function ShopClient({
       : "all"
   );
   const [selectedManufacturers, setSelectedManufacturers] = useState<Manufacturer[]>([]);
-  const [maxPrice, setMaxPrice] = useState<number>(0);
   const [application, setApplication] = useState<string>("all");
   const [query, setQuery] = useState(initialQuery);
   const [view, setView] = useState<ViewMode>("grid");
@@ -96,7 +92,6 @@ export function ShopClient({
       if (category !== "all" && p.category !== category) return false;
       if (selectedManufacturers.length > 0 && !selectedManufacturers.includes(p.manufacturer))
         return false;
-      if (maxPrice > 0 && p.price > maxPrice) return false;
       if (application !== "all" && p.application !== application) return false;
       if (query.trim()) {
         const q = query.toLowerCase();
@@ -107,12 +102,6 @@ export function ShopClient({
     });
 
     switch (sort) {
-      case "price-asc":
-        list = [...list].sort((a, b) => a.price - b.price);
-        break;
-      case "price-desc":
-        list = [...list].sort((a, b) => b.price - a.price);
-        break;
       case "rating":
         list = [...list].sort((a, b) => b.rating - a.rating);
         break;
@@ -120,7 +109,7 @@ export function ShopClient({
         list = [...list].sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
     }
     return list;
-  }, [category, selectedManufacturers, maxPrice, application, query, sort]);
+  }, [category, selectedManufacturers, application, query, sort]);
 
   const onApplyCategory = (key: Category | "all") => {
     setCategory(key);
@@ -129,10 +118,7 @@ export function ShopClient({
     else params.set("category", key);
     router.push(`/shop?${params.toString()}`);
   };
-
-  const maxPriceRange = useMemo(() => Math.max(...products.map((p) => p.price)), []);
-
-  return (
+return (
     <div className="container-site py-12">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[280px_1fr]">
         {/* Filters */}
@@ -197,32 +183,11 @@ export function ShopClient({
               </div>
             </div>
 
-            <div>
-              <FilterHeading>Max Price</FilterHeading>
-              <input
-                type="range"
-                min={0}
-                max={maxPriceRange}
-                step={10000}
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="mt-3 w-full accent-brand-primary"
-                aria-label="Maximum price"
-              />
-              <div className="mt-1 flex justify-between text-xs text-slate-500">
-                <span>₦0</span>
-                <span className="font-semibold text-brand-primary">
-                  {maxPrice === 0 ? "No limit" : `₦${maxPrice.toLocaleString("en-NG")}`}
-                </span>
-              </div>
-            </div>
-
             <button
               type="button"
               onClick={() => {
                 setCategory("all");
                 setSelectedManufacturers([]);
-                setMaxPrice(0);
                 setApplication("all");
                 setQuery("");
                 router.push("/shop");
@@ -254,8 +219,6 @@ export function ShopClient({
                 aria-label="Sort products"
               >
                 <option value="featured">Sort: Featured</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
                 <option value="rating">Top Rated</option>
               </select>
               <div className="flex overflow-hidden rounded-full border border-slate-200 bg-white">

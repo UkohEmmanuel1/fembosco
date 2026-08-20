@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { FloatingCartButton } from "@/components/layout/FloatingCartButton";
 import { QuoteProvider } from "@/components/layout/QuoteProvider";
 import { StoreProvider } from "@/components/store/StoreProvider";
 import { site } from "@/lib/site";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <ScrollToTop />
             <WhatsAppButton />
+            <FloatingCartButton />
           </QuoteProvider>
         </StoreProvider>
       </body>

@@ -52,7 +52,7 @@ export function WhyChooseUs() {
         ))}
         <div className="relative flex flex-col justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-7 text-white shadow-glow">
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brand-accent/30 blur-[60px]" aria-hidden="true" />
-          <h3 className="relative font-display text-xl font-semibold tracking-tight">{site.name}</h3>
+          <h3 className="relative font-display text-xl font-semibold tracking-tight text-white/80">{site.name}</h3>
           <p className="relative mt-3 text-sm leading-relaxed text-white/80">{site.qualityText}</p>
         </div>
       </div>

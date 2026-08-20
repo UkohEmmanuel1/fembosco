@@ -9,7 +9,7 @@ export const metadata = {
 export default function TrackOrderPage() {
   return (
     <>
-      <PageHeader title="Track Order" crumb="Track Order" />
+      <PageHeader title="Track Order" trail={[{ label: "Track Order" }]} />
       <TrackOrderClient />
     </>
   );

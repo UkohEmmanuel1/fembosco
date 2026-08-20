@@ -10,7 +10,6 @@ import {
   ClockIcon,
   CompareIcon,
   FacebookIcon,
-  HeartIcon,
   InstagramIcon,
   LinkedInIcon,
   MenuIcon,
@@ -172,7 +171,7 @@ export function Header() {
   const [query, setQuery] = useState("");
   const router = useRouter();
   const pathname = usePathname();
-  const { cartCount, wishlist, compare } = useStore();
+  const { cartCount, compare } = useStore();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -261,18 +260,6 @@ export function Header() {
             >
               <SearchIcon className="h-5 w-5" />
             </button>
-            <Link
-              href="/wishlist"
-              aria-label="Wishlist"
-              className="relative flex h-10 w-10 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-brand-secondary-light hover:text-brand-primary"
-            >
-              <HeartIcon className="h-5 w-5" />
-              {wishlist.length > 0 && (
-                <span className="absolute right-0 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-accent px-1 text-[10px] font-semibold text-white">
-                  {wishlist.length}
-                </span>
-              )}
-            </Link>
             <Link
               href="/compare"
               aria-label="Compare products"

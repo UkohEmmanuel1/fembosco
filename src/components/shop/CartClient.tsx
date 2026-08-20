@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useStore } from "@/components/store/StoreProvider";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { naira, products } from "@/lib/products";
 import { PlusIcon, MinusIcon, TrashIcon, TagIcon } from "@/components/ui/icons";
-import { useQuote } from "@/components/layout/QuoteProvider";
+import { CartQuoteModal } from "@/components/shop/CartQuoteModal";
 
 function tierDiscount(qty: number, productId: string): number {
   const product = products.find((p) => p.id === productId);
@@ -16,7 +17,7 @@ function tierDiscount(qty: number, productId: string): number {
 
 export function CartClient() {
   const { cart, cartProducts, updateQty, removeFromCart, clearCart, cartSubtotal } = useStore();
-  const { openQuote } = useQuote();
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   if (cart.length === 0) {
     return (
@@ -142,12 +143,19 @@ export function CartClient() {
               <dd className="font-display font-semibold text-brand-primary">{naira(cartSubtotal - savings)}</dd>
             </div>
           </dl>
-          <Link href="/checkout" className="btn-pill mt-6 w-full">
-            Proceed to Checkout
-          </Link>
-          <button type="button" onClick={openQuote} className="btn-outline mt-3 w-full text-xs">
-            Request Bulk Quote Instead
+          <button
+            type="button"
+            onClick={() => setQuoteOpen(true)}
+            className="btn-pill mt-6 w-full"
+          >
+            Request Quote
           </button>
+          <p className="mt-4 text-center text-xs text-slate-500">
+            Prefer to pay online?{" "}
+            <Link href="/checkout" className="font-semibold text-brand-primary hover:text-brand-accent">
+              Proceed to Checkout
+            </Link>
+          </p>
         </aside>
       </div>
 
@@ -162,6 +170,8 @@ export function CartClient() {
             ))}
         </div>
       </div>
+
+      {quoteOpen && <CartQuoteModal onClose={() => setQuoteOpen(false)} />}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function B2BPage() {
     <>
       <PageHeader
         title="B2B / Wholesale"
-        crumb="B2B / Wholesale"
+        trail={[{ label: "B2B / Wholesale" }]}
         description="Trade direct with Fembosco for bulk electrical and industrial supplies across Nigeria."
       />
 

@@ -16,7 +16,7 @@ export default function BlogIndexPage() {
     <>
       <PageHeader
         title="Blog & Guides"
-        crumb="Blog"
+        trail={[{ label: "Blog" }]}
         description="Industry news, installation guides, electrical safety education and project case studies."
       />
       <section className="container-site py-14">

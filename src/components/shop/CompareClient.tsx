@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useStore } from "@/components/store/StoreProvider";
 import { CompareIcon, TrashIcon, CheckCircleIcon } from "@/components/ui/icons";
-import { products, naira, stockLabels } from "@/lib/products";
+import { products, stockLabels } from "@/lib/products";
 
 export function CompareClient() {
   const { compare, toggleCompare } = useStore();
@@ -33,15 +33,6 @@ export function CompareClient() {
     {
       label: "Category",
       render: (p) => p.category,
-    },
-    {
-      label: "Price",
-      render: (p) => (
-        <span className="font-display font-semibold text-brand-primary">
-          {naira(p.price)}
-          <span className="block text-xs font-normal text-slate-500">{p.unit}</span>
-        </span>
-      ),
     },
     {
       label: "MOQ",

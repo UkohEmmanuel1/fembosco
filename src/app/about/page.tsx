@@ -27,7 +27,7 @@ const capabilities = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="About Us" crumb="About Us" description={`${site.name} — ${site.tagline}`} />
+      <PageHeader title="About Us" trail={[{ label: "About Us" }]} description={`${site.name} — ${site.tagline}`} />
 
       {/* History & mission */}
       <section className="container-site py-14">

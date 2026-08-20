@@ -9,7 +9,10 @@ export const metadata = {
 export default function CartPage() {
   return (
     <>
-      <PageHeader title="Shopping Cart" crumb="Cart" />
+      <PageHeader
+        title="Shopping Cart"
+        trail={[{ label: "Shop", href: "/shop" }, { label: "Cart" }]}
+      />
       <CartClient />
     </>
   );
