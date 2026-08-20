@@ -1,0 +1,25 @@
+export const quoteForm = {
+  products: [
+    "Cable Management System",
+    "Electrical Panel",
+    "Lighting Fitting",
+    "Pipes and Conduits",
+    "Transformers",
+    "Switches and Sockets",
+    "Compressors",
+    "Circuit Breakers",
+    "Fire Fighting Equipment",
+    "Distribution Boards",
+    "P17 Tempra Pro",
+    "Surface Terminals Shield Box",
+  ],
+  brands: [
+    "Legrands",
+    "Schneider",
+    "ABB",
+    "Philips",
+    "Brilliant Lighting",
+    "Other Brands",
+  ],
+  urgency: ["Low", "Normal", "High"],
+} as const;

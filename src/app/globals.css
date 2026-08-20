@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-primary: #1a365d;
+  --color-brand-primary-dark: #12233f;
+  --color-brand-primary-light: #2b4c7a;
+  --color-brand-secondary: #3182ce;
+  --color-brand-secondary-light: #eaf3fb;
+  --color-brand-accent: #ed8936;
+  --color-brand-accent-dark: #dd6b20;
+  --color-brand-ink: #0f172a;
+  --color-brand-muted: #475569;
+  --color-border: #e2e8f0;
+  --container-width: 1170px;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #0f172a;
+    background-color: #f8fafc;
+    font-family: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), "Space Grotesk", Inter, system-ui, sans-serif;
+    color: #0f172a;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
+    transition:
+      color 0.2s var(--ease-smooth),
+      background-color 0.2s var(--ease-smooth),
+      border-color 0.2s var(--ease-smooth),
+      opacity 0.2s var(--ease-smooth),
+      transform 0.2s var(--ease-smooth);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    transition:
+      color 0.2s var(--ease-smooth),
+      background-color 0.2s var(--ease-smooth),
+      border-color 0.2s var(--ease-smooth),
+      box-shadow 0.2s var(--ease-smooth),
+      transform 0.2s var(--ease-smooth);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-brand-secondary);
+  }
+
+  ::selection {
+    background: rgba(49, 130, 206, 0.18);
+    color: var(--color-brand-primary-dark);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-hero {
+    @apply mx-auto w-full max-w-hero px-4 sm:px-6;
+  }
+
+  /* ---------- Buttons ---------- */
+
+  /* Primary amber gradient pill with sheen sweep */
+  .btn-pill {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-[#f59e0b] via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
+  }
+  .btn-pill::after {
+    content: "";
+    @apply pointer-events-none absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent;
+    transform: skewX(-20deg);
+  }
+  .btn-pill:hover::after {
+    animation: shimmer 1.4s ease-out infinite;
+  }
+
+  /* Deep-blue gradient pill */
+  .btn-pill-blue {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-brand-primary-light to-brand-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 active:translate-y-0;
+  }
+  .btn-pill-blue::after {
+    content: "";
+    @apply pointer-events-none absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: skewX(-20deg);
+  }
+  .btn-pill-blue:hover::after {
+    animation: shimmer 1.4s ease-out infinite;
+  }
+
+  /* Ghost / outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-primary backdrop-blur transition-all duration-200 ease-smooth hover:border-brand-secondary hover:bg-white hover:text-brand-primary hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
+  }
+
+  /* White button on gradient/CTA bands */
+  .btn-white-blue {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-200 ease-smooth hover:border-white hover:bg-white hover:text-brand-primary hover:shadow-glowBlue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
+  }
+
+  /* Pill button used on gradient hero */
+  .btn-pill-hero {
+    @apply relative inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-full bg-gradient-to-b from-[#f59e0b] via-brand-accent to-brand-accent-dark px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-button transition-all duration-200 ease-smooth hover:-translate-y-[1px] hover:shadow-glowAmber focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2;
+  }
+  .btn-pill-hero::after {
+    content: "";
+    @apply pointer-events-none absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent;
+    transform: skewX(-20deg);
+  }
+  .btn-pill-hero:hover::after {
+    animation: shimmer 1.4s ease-out infinite;
+  }
+
+  /* ---------- Surfaces ---------- */
+
+  .glass {
+    @apply border border-slate-900/5 bg-white/70 backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-slate-900/5 bg-white/85 backdrop-blur-2xl;
+  }
+
+  .card-lift {
+    @apply transition-all duration-200 ease-smooth hover:-translate-y-[2px] hover:border-brand-secondary/30 hover:shadow-cardHover;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-secondary bg-clip-text text-transparent;
+  }
+
+  .text-gradient-amber {
+    @apply bg-gradient-to-r from-[#f59e0b] to-brand-accent-dark bg-clip-text text-transparent;
+  }
+
+  .ring-focus {
+    @apply focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2;
+  }
+
+  /* ---------- Typography ---------- */
+
+  .section-title {
+    @apply font-display text-[2.4rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.6rem];
+  }
+
+  .divider-brand {
+    @apply mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-brand-secondary to-brand-accent;
+  }
+
+  /* ---------- Misc ---------- */
+
+  .img-shrink {
+    transition:
+      transform 0.3s var(--ease-smooth),
+      filter 0.3s var(--ease-smooth);
+  }
+  .img-shrink:hover {
+    transform: scale(0.96);
+  }
+
+  .header-bar-social-icons a + a {
+    margin-left: 20px;
+  }
+
+  /* Spec table for product pages */
+  .spec-table {
+    @apply w-full border-collapse overflow-hidden rounded-xl text-sm;
+  }
+  .spec-table th,
+  .spec-table td {
+    @apply border-b border-slate-200/80 px-4 py-3 text-left;
+  }
+  .spec-table tr:last-child th,
+  .spec-table tr:last-child td {
+    @apply border-b-0;
+  }
+  .spec-table th {
+    @apply bg-slate-50 font-display text-[13px] font-semibold text-slate-900;
+  }
+  .spec-table td {
+    @apply font-mono text-slate-700;
+  }
+
+  /* Ambient spotlight background helper */
+  .spotlight {
+    @apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
+  }
+  .spotlight-blue {
+    background:
+      radial-gradient(600px 400px at 15% 0%, rgba(49, 130, 206, 0.14), transparent 70%),
+      radial-gradient(700px 500px at 90% 10%, rgba(26, 54, 93, 0.1), transparent 70%),
+      radial-gradient(500px 400px at 50% 120%, rgba(237, 137, 54, 0.1), transparent 70%);
+  }
+}
+
+/* Global element transitions for interactive states */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,31 @@
+export const heroCarousel: { image: string; alt: string }[] = [
+  { image: "/images/products/p17-tempra.jpg", alt: "P17 Tempra Pro plugs and sockets" },
+  { image: "/images/products/distribution-board.jpg", alt: "Legrand distribution board" },
+  { image: "/images/products/compressors.jpg", alt: "Air compressor" },
+  { image: "/images/products/circuit-breakers.jpg", alt: "Circuit breaker" },
+  { image: "/images/products/fire-fighting.jpg", alt: "Fire fighting equipment" },
+  { image: "/images/products/lighting.jpg", alt: "Lighting fittings" },
+  { image: "/images/products/switches-sockets.jpg", alt: "Switches and sockets" },
+  { image: "/images/products/cable-management.jpg", alt: "Cable management system" },
+  { image: "/images/products/pipes-conduits.jpg", alt: "PVC pipes and conduits" },
+  { image: "/images/products/shield-box.jpg", alt: "Surface terminal shield box" },
+  { image: "/images/products/panel-p21.jpg", alt: "Electrical panel" },
+  { image: "/images/products/mallia-silver.jpg", alt: "Legrand Mallia switch" },
+  { image: "/images/products/comf2706.png", alt: "Socket outlet" },
+  { image: "/images/products/belanko-switch.jpg", alt: "Belanko switch" },
+  { image: "/images/products/belanko.jpg", alt: "Belanko socket" },
+];
+
+export const fancyStrings: string[] = [
+  "Cable Management Solutions",
+  "Electrical Panels",
+  "Lighting Solutions",
+  "Switches and Sockets",
+  "Power Transformers",
+  "Pipes and Conduits",
+  "Air Compressors",
+  "Fire Fighting Solutions",
+  "Circuit Breakers",
+  "Distribution Boards",
+  "And Lots More...",
+];
